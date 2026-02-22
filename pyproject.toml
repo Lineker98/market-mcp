@@ -1,0 +1,31 @@
+[project]
+name = "market-mcp"
+version = "0.1.0"
+description = "Assistente de investimentos via MCP + Claude"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.81.0",
+    "mcp>=1.26.0",
+    "pandas>=2.3.3",
+    "yfinance>=1.2.0",
+]
+
+# Entry points — permite rodar como comandos
+[project.scripts]
+market-server = "market_mcp.server:main_sync"
+market-client = "market_mcp.client:main_sync"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# uv precisa saber onde fica o código-fonte
+[tool.hatch.build.targets.wheel]
+packages = ["src/market_mcp"]
+
+[tool.uv]
+dev-dependencies = [
+    "ipython>=8.0",       # REPL melhorado para testes
+    "rich>=13.0",         # output bonito no terminal
+]
