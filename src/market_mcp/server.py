@@ -33,6 +33,7 @@ def market_overview() -> str:
         "^GSPC":   "S&P 500",
         "^IXIC":   "NASDAQ",
         "^DJI":    "Dow Jones",
+        "^BVSP":   "Bovespa",
         "BTC-USD": "Bitcoin",
     }
     overview = {}
